@@ -2,12 +2,11 @@ vim.cmd('filetype indent off')
 vim.opt.updatetime = 250
 vim.opt.clipboard = "unnamedplus" -- system clipboard
 vim.opt.ignorecase = true -- ignore case while search
-vim.opt.splitright = true -- splits new vim.wodows to the right vertical
-vim.opt.splitbelow = true -- splits vim.wodows below horizontal
+vim.opt.splitright = true -- splits new windows right vertically
+vim.opt.splitbelow = true -- splits new windows below horizontal
 vim.opt.fileencoding = "utf-8"
 vim.opt.number = true -- show number lines
 vim.opt.relativenumber = true
-
 vim.opt.hidden = true
 vim.opt.mouse = 'a'
 vim.opt.smartcase = true
@@ -20,10 +19,10 @@ vim.opt.writebackup = false
 vim.opt.backup = false
 
 -- Indentation
-vim.opt.expandtab = true
+vim.opt.expandtab = true 
 vim.opt.autoindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2 
+vim.opt.shiftwidth = 2 
 
 --disable built in plugins
 -- disable some builtin vim plugins
