@@ -1,6 +1,6 @@
 local npairs = require("nvim-autopairs")
 local Rule   = require'nvim-autopairs.rule'
-npairs.setup {
+npairs.setup ({
   check_ts = true,
   enable_check_bracket_line = true,
   fast_wrap = {
@@ -12,7 +12,7 @@ npairs.setup {
   check_comma = true,
   hightlight = 'Search'
   }
-}
+})
 require('nvim-treesitter.configs').setup {
     autopairs = {enable = true}
 }

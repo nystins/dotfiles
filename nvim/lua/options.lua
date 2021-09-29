@@ -1,4 +1,8 @@
-vim.cmd('filetype indent off')
+vim.g.mapleader = ' '
+vim.g.everforest_background = 'soft'
+vim.cmd[[colorscheme everforest]]
+
+
 vim.opt.updatetime = 250
 vim.opt.clipboard = "unnamedplus" -- system clipboard
 vim.opt.ignorecase = true -- ignore case while search
@@ -19,12 +23,12 @@ vim.opt.writebackup = false
 vim.opt.backup = false
 
 -- Indentation
-vim.opt.expandtab = true 
+vim.opt.expandtab = true
 vim.opt.autoindent = true
-vim.opt.tabstop = 2 
-vim.opt.shiftwidth = 2 
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
---disable built in plugins
+-- disable built in plugins
 -- disable some builtin vim plugins
 local disabled_built_ins = {
    "2html_plugin",

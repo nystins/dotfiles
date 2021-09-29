@@ -1,4 +1,4 @@
-require('telescope').setup{
+require('telescope').setup ({
    defaults = {
       vimgrep_arguments = {
          "rg",
@@ -51,7 +51,7 @@ require('telescope').setup{
         find_cmd = "rg", -- find command (defaults to `fd`)
       },
    },
-}
+})
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('media_files')

@@ -1,3 +1,4 @@
+vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use {
     'wbthomason/packer.nvim',
@@ -6,13 +7,15 @@ return require('packer').startup(function(use)
   -- theme
   use {'sainnhe/everforest'}
 
-  -- surround text in [,{,(
-  use {
-    'blackCauldron7/surround.nvim',
-    config = function()
-      require"surround".setup{}
-    end,
-  }
+  -- -- surround text in [,{,(
+  -- use {
+  --   'blackCauldron7/surround.nvim',
+  --   config = function()
+  --     require"surround".setup{}
+  --   end,
+  -- }
+
+  use{'tpope/vim-surround'}
 
   -- lsp
   use {
@@ -67,7 +70,8 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- nerdtree
+
+  -- nvimtree
   use {
     'kyazdani42/nvim-tree.lua',
     cmd = 'NvimTreeToggle',
@@ -98,6 +102,13 @@ return require('packer').startup(function(use)
     'L3MON4D3/LuaSnip',
     config = function()
       require 'config.luasnip'
+    end
+  }
+
+  use {
+    'onsails/lspkind-nvim',
+    config = function()
+      require 'config.lspkind'
     end
   }
 
