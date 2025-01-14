@@ -25,7 +25,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${CONFIG_DIR}/sabnzbd/config:/config
-      - ${USENET_DIR}:/complete 
+      - ${USENET_DIR}:/usenet
     ports:
       - 8080:8080
     restart: unless-stopped
