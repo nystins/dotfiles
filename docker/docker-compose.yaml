@@ -10,11 +10,24 @@ services:
       - TORRENTING_PORT=6881
     volumes:
       - ${CONFIG_DIR}/qbitorrent/config:/config
-      - /path/to/downloads:/downloads 
+      - ${TORRENT_DIR}:/torrents 
     ports:
       - 8885:8885
       - 6881:6881
       - 6881:6881/udp
+    restart: unless-stopped
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:latest
+    container_name: sabnzbd
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${CONFIG_DIR}/sabnzbd/config:/config
+      - ${USENET_DIR}:/complete 
+    ports:
+      - 8080:8080
     restart: unless-stopped
   plex:
     image: lscr.io/linuxserver/plex:latest
@@ -30,8 +43,7 @@ services:
       - PLEX_CLAIM= 
     volumes:
       - ${CONFIG_DIR}/plex/config:/config
-      - /path/to/tvseries:/tv
-      - /path/to/movies:/movies
+      - ${MEDIA_DIR}:/media
     restart: unless-stopped
   tautulli:
     image: lscr.io/linuxserver/tautulli:latest
@@ -66,8 +78,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${CONFIG_DIR}/radarr/config:/config
-      - /path/to/movies:/movies 
-      - /path/to/download-client-downloads:/downloads 
+      - ${BASE_DIR}:/data
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -80,8 +91,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${CONFIG_DIR}/sonarr/config:/config
-      - /path/to/tvseries:/tv 
-      - /path/to/downloadclient-downloads:/downloads 
+      - ${BASE_DIR}:/data
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -94,8 +104,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${CONFIG_DIR}/bazarr/config:/config
-      - /path/to/movies:/movies 
-      - /path/to/tv:/tv 
+      - ${MEDIA_DIR}:/media
     ports:
       - 6767:6767
     restart: unless-stopped
